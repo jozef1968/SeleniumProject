@@ -16,16 +16,16 @@ public class BankingAutomation {
         homePageOfBank.cpenAccountClick();
         BankingLogin signupPageOfBank = new BankingLogin(driver, userAddedId);
         signupPageOfBank.clickSignUpPageOfBankAsNewAddedUser();
-        homePageOfBank.waitTime(3000);
+        homePageOfBank.waitTime(2000);
         BankingTransaction transaction = new BankingTransaction(driver);
         for (int i = 0; i < 4; i++) {
             transaction.createTransaction("Deposit");
         }
-        homePageOfBank.waitTime(3000);
+        homePageOfBank.waitTime(2000);
         for (int i = 0; i < 4; i++) {
             transaction.createTransaction("Withdrawl");
         }
-        homePageOfBank.waitTime(3000);
+        homePageOfBank.waitTime(2000);
         transaction.reviewTransaction();
     }
 }

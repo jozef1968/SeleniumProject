@@ -18,15 +18,19 @@ public class BankingTransaction {
     }
 
     public void createTransaction(String transfer) {
+        BankingHome homePageOfBank = new BankingHome(driver);
         if (transfer.equals("Deposit")) {
             driver.findElement(By.cssSelector("body > div > div > div.ng-scope > div > div:nth-child(5) > button:nth-child(2)")).click();
+            homePageOfBank.waitTime(1000);
             driver.findElement(By.cssSelector("body > div > div > div.ng-scope > div > div.container-fluid.mainBox.ng-scope > div > form > div > input")).sendKeys(calculateDeposit(1000));
-            driver.findElement(By.cssSelector("body > div > div > div.ng-scope > div > div.container-fluid.mainBox.ng-scope > div > form > button")).click();
         } else {
             driver.findElement(By.cssSelector("body > div > div > div.ng-scope > div > div:nth-child(5) > button:nth-child(3)")).click();
-            driver.findElement(By.cssSelector("body > div > div > div.ng-scope > div > div.container-fluid.mainBox.ng-scope > div > form > div > input")).sendKeys(calculateDeposit(500));
-            driver.findElement(By.cssSelector("body > div > div > div.ng-scope > div > div.container-fluid.mainBox.ng-scope > div > form > button")).click();
+            homePageOfBank.waitTime(1000);
+            driver.findElement(By.cssSelector("body > div > div > div.ng-scope > div > div.container-fluid.mainBox.ng-scope > div > form > div > input")).sendKeys(calculateDeposit(200));
         }
+        driver.findElement(By.cssSelector("body > div > div > div.ng-scope > div > div.container-fluid.mainBox.ng-scope > div > form > div > input"));
+        driver.findElement(By.cssSelector("body > div > div > div.ng-scope > div > div.container-fluid.mainBox.ng-scope > div > form > button")).click();
+        driver.findElement(By.cssSelector("body > div > div > div.ng-scope > div > div.container-fluid.mainBox.ng-scope > div > form > button"));
     }
 
     public void reviewTransaction() {
